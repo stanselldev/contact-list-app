@@ -19,8 +19,10 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
       method: 'POST',
       url: '/contactList',
       data: $scope.contact
-    }).then(() => {
-      setTimeout(() => {refresh()}, 200);
+    }).then((res) => {
+      if (res.status === 201) {
+        refresh();
+      }
     }, (e) => {
       console.log(e);
     });
@@ -62,7 +64,7 @@ app.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log($scope.contact);
   };
 
-  $scope.deselect = () {
+  $scope.deselect = () => {
     $scope.contact = "";
   }
 

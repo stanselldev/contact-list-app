@@ -50,7 +50,7 @@ app.delete('/contactlist/:id', (req, res) => {
 
 app.get('/contactlist/:id', (req, res) => {
   var id = req.params.id;
-  
+
   Contact.findOne({
     _id: id
   }).then((contact) => {
